@@ -1,0 +1,160 @@
+SoulSync será una aplicación móvil para parejas enfocada en fortalecer relaciones mediante conexión emocional, preguntas inteligentes, retos compartidos, IA personalizada, rachas y evolución psicológica de la relación. Y al final del día o cuando se vean poder compartir estas experiencias- cosa que pasará de un móvil a una realidad vigente y cotidiana de parejas.
+
+1.- PROBLEMA QUE RESUELVE
+Muchas parejas pierden conexión por rutina, mala comunicación, distancia emocional o falta de tiempo de calidad. Las aplicaciones actuales suelen ofrecer contenido genérico, pero no personalización emocional profunda.
+
+2.- SOLUCIÓN PROPUESTA
+SoulSync ofrecerá experiencias emocionales personalizadas mediante preguntas diarias, retos, estados de relación, recompensas y una IA capaz de adaptarse al momento, comportamiento y evolución de cada pareja.
+
+3.- PROPUESTA DE VALOR - PORQUE UTILIZARLA
+No solo conecta parejas; las ayuda a evolucionar emocionalmente mediante tecnología, psicología e inteligencia artificial.
+
+4.- PÚBLICO OBJETIVO
+Edad:
+18 a 40 años
+
+Tipos:
+- Novios
+- Matrimonios
+- Relaciones a distancia
+- Parejas en etapa inicial
+- Parejas que buscan reconexión
+
+5.- MVP (VERSIÓN 1 OBLIGATORIA)
+Lo mínimo para lanzar y validar
+
+6.-FUNCIONES MVP
+1. Registro e inicio de sesión
+2. Vinculación de pareja mediante código único
+3. Perfil de usuario
+4. Pregunta diaria sincronizada para ambos
+5. Respuestas individuales y compartidas
+6. Sistema de racha
+7. Estado evolutivo de relación
+8. Recompensas emocionales básicas
+9. Notificaciones
+
+7. FUNCIONES FUTURAS (NO MVP)
+- IA emocional avanzada
+- Coach de relaciones
+- Modo conflicto
+- Chat inteligente
+- Terapia guiada
+- Videollamadas
+- Marketplace emocional
+
+8. Plantear cuales son las prioridades y qué engancha más 
+9. MONETIZACIÓN
+Define cómo generará dinero:
+Modelo Freemium:
+
+Gratis:
+- Preguntas básicas
+- Rachas
+- Retos limitados
+
+Premium:
+- IA personalizada
+- Preguntas profundas
+- Estados exclusivos
+- Recuperación de racha
+- Análisis emocional
+- Experiencias premium
+
+10. TECNOLOGÍAS
+Basado en lo conversado:
+Frontend:
+Flutter
+
+Backend:
+Python + FastAPI
+
+Base de datos:
+PostgreSQL
+
+Autenticación:
+JWT / Firebase Auth
+
+Notificaciones:
+Firebase Cloud Messaging
+
+IA futura:
+OpenAI API
+11. REGLAS DE NEGOCIO
+
+Ejemplo:
+- Un usuario solo puede estar vinculado a una pareja activa
+- La racha aumenta solo si ambos interactúan dentro del periodo establecido
+- Los estados relacionales evolucionan según interacción
+- Las recompensas se desbloquean por hitos
+- Premium permite funciones avanzadas
+
+12. PSICOLOGÍA DEL PRODUCTO
+SoulSync se basará en:
+- Refuerzo positivo
+- Gamificación emocional
+- Progreso relacional
+- Curiosidad
+- Recompensa
+- Comunicación profunda
+
+13. SISTEMA DE PROGRESIÓN
+Estados:
+- Conexión inicial
+- Raíces
+- Complicidad
+- Sincronía
+- Alianza
+
+14. OBJETIVO DE LANZAMIENTO
+Lanzar una primera versión funcional en Android para validar interés, retención y monetización.
+
+15. META EMPRESARIAL
+Construir una marca escalable de tecnología emocional para relaciones.
+EJEMPLO REAL COMPLETO:
+ESTO ES LO QUE DEBERÍA QUEDAR:
+Proyecto: SoulSync
+
+Visión:
+Aplicación emocional para parejas con IA, preguntas inteligentes, retos y evolución psicológica.
+
+Problema:
+Rutina, desconexión y falta de comunicación en relaciones.
+
+Solución:
+Conexión diaria personalizada con tecnología emocional.
+
+Público:
+Parejas de 18 a 40 años.
+
+MVP:
+- Registro
+- Vinculación
+- Pregunta diaria
+- Racha
+- Estado
+
+Tecnologías:
+Flutter + FastAPI + PostgreSQL
+
+* Para encriptar:
+passlib + bcrypt
+- pip install bcrypt==4.0.1
+Modelo:
+Freemium + Premium
+
+Meta:
+Lanzamiento Android y escalamiento.
+FLUJO REAL DEL USUARIO 
+PASO A PASO:
+
+Usuario nuevo:
+1. Descarga app
+2. Registro
+3. Crea perfil
+4. Vincula pareja
+5. Recibe primera pregunta
+6. Responde
+7. Espera respuesta
+8. Gana racha
+9. Evoluciona
