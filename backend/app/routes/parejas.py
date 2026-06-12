@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from app.database import SessionLocal
-from app.models import Pareja
+from app.models import Pareja, EstadisticaPareja
 from fastapi import HTTPException
 from datetime import datetime, timedelta
 import random
@@ -106,6 +106,12 @@ def unirse_pareja(user_id: int, codigo: str):
     pareja.racha = 1
     pareja.ultimo_check = datetime.utcnow()
 
+    estadistica = EstadisticaPareja(
+        pareja_id=pareja.id
+    )
+
+    db.add(estadistica)
+
     db.commit()
 
     return {"mensaje": "Pareja conectada exitosamente"}
@@ -158,4 +164,106 @@ def interactuar(user_id: int):
         "mensaje": "Interacción registrada ❤️",
         "racha": pareja.racha,
         "nivel": pareja.nivel_relacion
+    }
+
+
+@router.get("/parejas/estadisticas/{pareja_id}")
+def obtener_estadisticas(pareja_id: int):
+
+    db = SessionLocal()
+
+    estadistica = db.query(
+        EstadisticaPareja
+    ).filter(
+        EstadisticaPareja.pareja_id == pareja_id
+    ).first()
+
+    if not estadistica:
+        return {"mensaje": "No existen estadísticas"}
+
+    return {
+        "preguntas_respondidas": estadistica.preguntas_respondidas,
+        "conversaciones_profundas": estadistica.conversaciones_profundas,
+        "agradecimientos": estadistica.agradecimientos,
+        "metas_compartidas": estadistica.metas_compartidas,
+        "recuerdos_guardados": estadistica.recuerdos_guardados,
+        "logros_desbloqueados": estadistica.logros_desbloqueados,
+        "compatibilidad": estadistica.compatibilidad
+    }
+
+#Historia
+@router.get("/parejas/historia/{pareja_id}")
+def obtener_historia(pareja_id: int):
+
+    db = SessionLocal()
+
+    pareja = db.query(
+        Pareja
+    ).filter(
+        Pareja.id == pareja_id
+    ).first()
+
+    if not pareja:
+        raise HTTPException(
+            status_code=404,
+            detail="Pareja no encontrada"
+        )
+
+    estadistica = db.query(
+        EstadisticaPareja
+    ).filter(
+        EstadisticaPareja.pareja_id == pareja_id
+    ).first()
+
+    if not estadistica:
+        raise HTTPException(
+            status_code=404,
+            detail="Estadísticas no encontradas"
+        )
+
+    return {
+        "nivel_relacion": pareja.nivel_relacion,
+        "racha": pareja.racha,
+        "preguntas_descubiertas": estadistica.preguntas_respondidas,
+        "conversaciones_profundas": estadistica.conversaciones_profundas,
+        "agradecimientos": estadistica.agradecimientos,
+        "metas_compartidas": estadistica.metas_compartidas,
+        "recuerdos_guardados": estadistica.recuerdos_guardados,
+        "logros_desbloqueados": estadistica.logros_desbloqueados,
+        "actos_confianza": estadistica.actos_confianza,
+    }
+
+#Resumen Semanal
+@router.get("/parejas/resumen-semanal/{pareja_id}")
+def resumen_semanal(pareja_id: int):
+
+    db = SessionLocal()
+
+    estadistica = db.query(
+        EstadisticaPareja
+    ).filter(
+        EstadisticaPareja.pareja_id == pareja_id
+    ).first()
+
+    if not estadistica:
+        return {
+            "mensaje": "No existen estadísticas"
+        }
+
+    return {
+        "mensaje": "Resumen semanal ❤️",
+
+        "preguntas": estadistica.preguntas_respondidas,
+
+        "profundas": estadistica.conversaciones_profundas,
+
+        "agradecimientos": estadistica.agradecimientos,
+
+        "recuerdos": estadistica.recuerdos_guardados,
+
+        "metas": estadistica.metas_compartidas,
+
+        "confianza": estadistica.actos_confianza,
+
+        "logros": estadistica.logros_desbloqueados
     }

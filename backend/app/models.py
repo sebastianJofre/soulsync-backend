@@ -34,6 +34,8 @@ class Pregunta(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     texto = Column(String)
+    categoria = Column(String)
+    nivel_minimo = Column(String)
     fecha = Column(DateTime, default=datetime.utcnow)
 
 class Respuesta(Base):
@@ -44,4 +46,26 @@ class Respuesta(Base):
     pareja_id = Column(Integer, ForeignKey("parejas.id"))
     pregunta_id = Column(Integer, ForeignKey("preguntas.id"))
     respuesta = Column(String)
+    fecha = Column(DateTime, default=datetime.utcnow)
+
+class EstadisticaPareja(Base):
+    __tablename__ = "estadisticas_pareja"
+    id = Column(Integer, primary_key=True, index=True)
+    pareja_id = Column(Integer, ForeignKey("parejas.id"))
+    preguntas_respondidas = Column(Integer, default=0)
+    conversaciones_profundas = Column(Integer, default=0)
+    agradecimientos = Column(Integer, default=0)
+    metas_compartidas = Column(Integer, default=0)
+    recuerdos_guardados = Column(Integer, default=0)
+    actos_confianza = Column(Integer, default=0)
+    logros_desbloqueados = Column(Integer, default=0)
+    compatibilidad = Column(Integer, default=0)
+
+class Logro(Base):
+    __tablename__ = "logros"
+    id = Column(Integer, primary_key=True, index=True)
+    pareja_id = Column(Integer, ForeignKey("parejas.id"))
+    codigo = Column(String)
+    titulo = Column(String)
+    descripcion = Column(String)
     fecha = Column(DateTime, default=datetime.utcnow)

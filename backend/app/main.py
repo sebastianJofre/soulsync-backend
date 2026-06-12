@@ -5,6 +5,7 @@ from app.models import Base
 from app.routes.parejas import router as parejas_router
 from app.routes.preguntas import router as preguntas_router
 from app.routes.respuestas import router as respuestas_router
+from app.routes import admin
 
 app = FastAPI()
 
@@ -14,6 +15,7 @@ app.include_router(users_router)
 app.include_router(parejas_router)
 app.include_router(preguntas_router)
 app.include_router(respuestas_router)
+app.include_router(admin.router)
 
 @app.get("/")
 def home():
